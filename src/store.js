@@ -25,7 +25,14 @@ const toDos = createSlice({
   },
   reducers: {
     add: (state, action) => {
-      state.push({ text: action.payload, id: Date.now() });
+      const year = new Date().getFullYear();
+      const month = new Date().getMonth();
+      const date = new Date().getDate();
+      state.push({
+        id: Date.now(),
+        date: `${year}.${month}.${date}`,
+        text: action.payload,
+      });
       localStorage.setItem("todoList", JSON.stringify(state));
     },
     remove: (state, action) => {

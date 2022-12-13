@@ -16,6 +16,20 @@ const Container = styled.div`
     padding: 30px 20px;
   }
 `;
+const Title = styled.h2`
+  font-size: 30px;
+  margin: 0 0 30px;
+`;
+const Text = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+`;
 
 function Detail({ toDos }) {
   const myId = useParams().id;
@@ -23,8 +37,11 @@ function Detail({ toDos }) {
 
   return (
     <Container>
-      <h1>{toDo?.text}</h1>
-      <h5>Created at: {toDo?.id}</h5>
+      <Title>{toDo?.text}</Title>
+      <Text>
+        <p>{toDo?.date}</p>
+        <p>Created at: {toDo?.id}</p>
+      </Text>
     </Container>
   );
 }
