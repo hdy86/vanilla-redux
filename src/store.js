@@ -16,13 +16,23 @@ const reducer = createReducer([], {
 
 const toDos = createSlice({
   name: "toDosReducer",
-  initialState: [],
+  initialState: () => {
+    if (localStorage.getItem("todoList")) {
+      return JSON.parse(localStorage.getItem("todoList"));
+    } else {
+      return [];
+    }
+  },
   reducers: {
     add: (state, action) => {
       state.push({ text: action.payload, id: Date.now() });
+      localStorage.setItem("todoList", JSON.stringify(state));
     },
-    remove: (state, action) =>
-      state.filter((toDo) => toDo.id !== action.payload),
+    remove: (state, action) => {
+      const newToDos = state.filter((toDo) => toDo.id !== action.payload);
+      localStorage.setItem("todoList", JSON.stringify(newToDos));
+      return newToDos;
+    },
   },
 });
 
