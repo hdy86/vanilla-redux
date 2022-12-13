@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/vanilla-redux/static/js/main.b16a7eef.js",
+    "index.html": "/vanilla-redux/index.html",
+    "main.b16a7eef.js.map": "/vanilla-redux/static/js/main.b16a7eef.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b16a7eef.js"
+  ]
+}
